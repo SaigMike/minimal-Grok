@@ -57,7 +57,7 @@ grok-chatbot/
 # Required
 GROK_API_KEY=YOUR_KEY
 # Optional
-GROK_MODEL=grok-2-latest
+GROK_MODEL=grok-3-mini-latest
 HOST=0.0.0.0
 PORT=8000
 ALLOWED_ORIGINS=http://192.168.1.187:5173
