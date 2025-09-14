@@ -1,0 +1,25 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_BASE: "http://192.168.1.187:8000"
+    ports:
+      - target: 80
+        published: 5173
+        protocol: tcp
+        host_ip: 192.168.1.187
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+    env_file:
+      - ./backend/.env
+    command: ["uvicorn","app.main:app","--host","0.0.0.0","--port","8000"]
+    ports:
+      - target: 8000
+        published: 8000
+        protocol: tcp
+        host_ip: 192.168.1.187
+    restart: unless-stopped
